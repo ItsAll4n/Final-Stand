@@ -1,0 +1,54 @@
+Client = game:service'Players'.LocalPlayer
+Char = Client.Character
+HRP = Char:WaitForChild'HumanoidRootPart'
+
+Init = game:service'TeleportService'
+Run = game:service'RunService'
+
+Instance = {
+    882375367
+}
+
+function MS()
+    while true do
+        wait()
+        for _, Move in next, Client.Backpack:GetChildren() do
+            if table.find(Settings.Moves, Move.Name) then
+                Move.Parent = workspace.Live[Client.Name]
+                Move:Activate()
+                wait()
+                Move.Parent = Client.Backpack
+            end
+        end
+    end
+end
+
+function NS()
+    loadstring(game:HttpGet'https://raw.githubusercontent.com/ItsAll4n/Final-Stand/main/NoSlow')()
+end
+
+if game.PlaceId ~= Instance[1] then
+    Init:Teleport(Instance[1])
+end
+
+if game.PlaceId == Instance[1] then
+    wait(1)
+    Char.Stats['Phys-Resist']:Destroy()
+    Char.Stats['Ki-Resist']:Destroy()
+    Run.Heartbeat:Connect(function()
+        HRP.CFrame = CFrame.new(-60, 238, -191)
+        Client.Backpack.ServerTraits.EatSenzu:FireServer('All4n')
+        for _, NPC in pairs(workspace.Live:GetChildren()) do
+            if NPC.Name ~= Client.Name then
+                workspace.CurrentCamera.CFrame = CFrame.new(HRP.Position, NPC.HumanoidRootPart.Position) * CFrame.new(0, 2, 25)
+            end
+        end
+    end)
+    Char.Humanoid:EquipTool(Client.Backpack[Settings.Grab])
+    Char[Settings.Grab]:Activate()
+    Char[Settings.Grab].Activator.Flip:Destroy()
+    wait(.3)
+    Char.Humanoid:UnequipTools()
+    NS()
+    MS()
+end
