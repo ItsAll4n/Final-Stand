@@ -1,0 +1,84 @@
+game:service'RunService'.RenderStepped:connect(
+    function()
+        for i, p in pairs(game:service'Players'.LocalPlayer.Character:GetDescendants()) do
+            if p:IsA('BodyVelocity') and p.Name ~= 'Flying' then
+                p:Destroy()
+            end
+        end
+        for i, v in pairs(game:service'Players'.LocalPlayer.Character:GetChildren()) do
+            if v.Name == 'Justice Combination' then
+                action = game:service 'Players'.LocalPlayer.Character:WaitForChild('Action')
+                if action then
+                    wait()
+                    action:Destroy()
+                end
+            end
+            if v.Name == 'Action' then
+                v:Destroy()
+            end
+            if v.Name == 'Attacking' then
+                v:Destroy()
+            end
+            if v.Name == 'Using' then
+                v:Destroy()
+            end
+            if v.Name == 'hyper' then
+                v:Destroy()
+            end
+            if v.Name == 'Hyper' then
+                v:Destroy()
+            end
+            if v.Name == 'heavy' then
+                v:Destroy()
+            end
+            if v.Name == 'KiBlasted' then
+                v:Destroy()
+            end
+            if v.Name == 'Tele' then
+                v:Destroy()
+            end
+            if v.Name == 'tele' then
+                v:Destroy()
+            end
+            if v.Name == 'Killed' then
+                v:Destroy()
+            end
+            if v.Name == 'Slow' then
+                v:Destroy()
+            end
+            if v.Name == 'MoveStart' then
+                v:Destroy()
+            end
+            if v.Name == 'KnockBacked' then
+                v:Destroy()
+            end
+            if v.Name == 'Dodging' then
+                v:Destroy()
+            end
+            if v.Name == 'zDASZzxc' then
+                v:Destroy()
+            end
+            if v.Name == 'evasive' then
+                v:Destroy()
+            end
+            if v.Name == 'BStun' then
+                v:Destroy()
+            end
+            if v.Name == 'Body Velocity' then
+                v:Destroy()
+            end
+            if v.Name == 'Ki Blasting' then
+                v:Destroy()
+            end
+            if v.Name == 'NotHardBack' then
+                v:Destroy()
+            end
+            if v.Name == 'Velocity' then
+                v:Destroy()
+            end
+            if v.Name == 'Block' and v.Value == true then
+                v.Value = false
+            end
+        end
+    end
+)
