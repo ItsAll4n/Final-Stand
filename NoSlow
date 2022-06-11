@@ -1,7 +1,7 @@
 game:service'RunService'.RenderStepped:connect(
     function()
         for i, p in pairs(game:service'Players'.LocalPlayer.Character:GetDescendants()) do
-            if p:IsA('BodyVelocity') and p.Name ~= 'Flying' then
+            if p:IsA('BodyVelocity') and p.Name ~= 'Flying' and p.Name ~= 'Alignment' then
                 p:Destroy()
             end
         end
